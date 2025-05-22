@@ -1,0 +1,19 @@
+Пример структуры таблицы Google Sheets:
+
+Таблица состоит из 2 листов:
+1. Drivers
+   - A: Имя
+   - B: Тур
+   - C: Авто
+   - D: Статус (Работает, Отпуск, Отгул, Больничный)
+
+2. Requests
+   - A: Имя водителя
+   - B: Тип заявки (Отпуск, Отгул, Ремонт, Больничный)
+   - C: Комментарий
+   - D: Дата
+
+ID таблицы можно взять из URL:
+https://docs.google.com/spreadsheets/d/ЭТОТ_ID/edit
+
+Пример ID: 1dDlmRaDnmkbK-DL5P4kZQtbCavEJmYM8sUMw29dfVm8
