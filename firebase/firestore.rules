@@ -1,0 +1,32 @@
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Пользователи
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Дневные планы — только авторизованным
+    match /daily_plans/{day} {
+      allow read, write: if request.auth != null;
+    }
+
+    // История — только для admin
+    match /plan_history/{entry} {
+      allow read: if request.auth.token.role == 'admin';
+      allow write: if false;
+    }
+
+    // Логи — только админам
+    match /logs/{logId} {
+      allow read, write: if request.auth.token.role == 'admin';
+    }
+
+    // Разрешения на компоненты
+    match /permissions/{uid} {
+      allow read, write: if request.auth.uid == uid || request.auth.token.role == 'admin';
+    }
+  }
+}
